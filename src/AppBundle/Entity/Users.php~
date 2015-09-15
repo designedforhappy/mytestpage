@@ -1,0 +1,88 @@
+<?php
+Namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+/**
+ * @orm\Entity
+ * @orm\Table(name="Users")
+ */
+class Users
+{
+    /**
+     * @ORM\Id
+     * @orm\Column(type="integer")
+     * @orm\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    /**
+     * @orm\Column(type="string")
+     */
+    protected $username;
+     /**
+     * @orm\Column(type="string")
+     */
+    protected $password;
+     /**
+     * @orm\Column(type="string")
+     */
+    protected $ctime;
+     /**
+     * @orm\Column(type="datetime")
+     */
+    protected $karma;
+     /**
+     * @orm\Column(type="string")
+     */
+    protected $email;//
+     /**
+     * @orm\Column(type="string")
+     */
+    protected $auth;//authentication token
+     /**
+     * @orm\Column(type="string")
+     */
+    protected $apisecret;//api POST requests secrete code to prevent CSRF attacks
+     /**
+     * @orm\Column(type="string")
+     */
+    protected $flags;//user flags "a" enables administrative privillage
+     /**
+     * @orm\Column(type="datetime")
+     */
+    protected $karma_incr_time;
+     /**
+     * @orm\Column(type="datetime")
+     */
+    protected $pwd_reset;
+     /**
+     * @orm\Column(type="integer")
+     */
+    protected $replies;//number of unread replies
+    
+    public function getUsername()
+    {
+        return $this->username;
+    }
+    public function setUsername($username)
+    {
+        return $this->username  = $username;
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+    public function setPassword($password)
+    {
+        return $this->password = $password;
+    }
+
+    public function getCtime()
+    {
+        return $this->ctime;
+    }
+    public function setCtime($ctime)
+    {
+        return $this->ctime;
+    }
+}
